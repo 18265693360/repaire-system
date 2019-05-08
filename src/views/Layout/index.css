@@ -1,0 +1,23 @@
+li{
+    list-style: none;
+}
+
+.layout-container .am-tab-bar{
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+
+
+}
+
+
+/*组件样式也是可调整的*/
+.am-navbar-left-icon {
+    margin-right: -2px;
+    display: inherit;
+}
+
+.layout-container .tabbar-wrap {
+    color: #409EFF;
+}
