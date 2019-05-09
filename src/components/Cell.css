@@ -1,0 +1,16 @@
+.cell-wrap{
+    padding: 16px 10px;
+    border: 1px solid #eeeeee;
+}
+
+.cell-row1 {
+    display: flex;
+    justify-content: space-between;
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+.cell-row1 .row-left{
+    display: flex;
+
+}

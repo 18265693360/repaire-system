@@ -7,10 +7,7 @@ li{
     bottom: 0;
     left: 0;
     right: 0;
-
-
 }
-
 
 /*组件样式也是可调整的*/
 .am-navbar-left-icon {
@@ -18,6 +15,16 @@ li{
     display: inherit;
 }
 
-.layout-container .tabbar-wrap {
+/*注意react中的组件样式改变  和vue中不同 它用的是集合样式嵌套定位 不是树形*/
+.am-tabs-tab-bar-wrap .iconfont{
+    font-size: 28px;
+}
+
+.am-tab-bar-bar{
+    height: 70px;
+}
+
+                                 /*激活后的颜色*/
+.layout-container .am-tab-bar-bar .active {
     color: #409EFF;
 }

@@ -23,12 +23,13 @@ const tabArr = [
         url:'/layout/done'
     },
     {
-        title:'我的',
+        title:'个人中心',
         icon:'iconwodedangxuan1',
-        name:'center',
-        url:'/layout/center'
+        name:'personalcenter',
+        url:'/layout/personalcenter'
     }
 ];
+
 
 class Layout extends React.Component {
     constructor(props) {
@@ -43,6 +44,9 @@ class Layout extends React.Component {
                     break;
                 case "/layout/sended":
                     title = "已派单";
+                    break;
+                case"/layout/done":
+                    title = "维修完成";
                     break;
                 default:
                     title = "维修记录";
@@ -64,6 +68,7 @@ class Layout extends React.Component {
 
 
 
+//写页面的地方
     render() {
         return (
             <div className="layout-container">
@@ -74,21 +79,6 @@ class Layout extends React.Component {
                 >{this.state.title}</NavBar>
                 {this.props.children}
 
-
-                {/*<ul>*/}
-                    {/*<li onClick={() => {this.props.history.push('/layout')}}>*/}
-                        {/*所有维修记录*/}
-                    {/*</li>*/}
-                    {/*<li onClick={() => {this.props.history.push('/layout/sended')}}>*/}
-                        {/*已派单*/}
-                    {/*</li>*/}
-                    {/*<li>*/}
-                        {/*已完成*/}
-                    {/*</li>*/}
-                    {/*<li>*/}
-                        {/*我的*/}
-                    {/*</li>*/}
-                {/*</ul>*/}
 
                 <TabBar
                     className="tabbar-wrap"
@@ -102,12 +92,13 @@ class Layout extends React.Component {
                             <TabBar.Item
                                 key={index}
                                 title={item.title}
-                                icon={<i className={'iconfont' + ' ' +  item.icon}></i>}
-                                selectedIcon={<i className={'iconfont' + ' ' + item.icon + 'active'}></i>}
-                                selected={this.state.selectedTab === 'item.name'}
+                                icon={<i className={'iconfont' + ' ' +  item.icon} />}
+                                selectedIcon={<i className={'iconfont' + ' ' + item.icon + 'active'} />}
+
+                                selected={this.state.selectedTab === item.name}
                                 onPress={() => {
                                     this.setState({
-                                        selectedTab: 'item.name',
+                                        selectedTab: item.name,
                                     });
                                     this.props.history.push(item.url)
                                 }}
@@ -138,12 +129,18 @@ class Layout extends React.Component {
                     return
                 }
                 break;
-            // case"/layout/customercenter":
-            //     title:"我的";
-            //     if (nextState.title == '我的'){
-            //         return
-            //     }
-            //     break;
+            case "/layout/done":
+                title = "维修完成";
+                if (nextState.title === '维修已完成'){
+                    return
+                }
+                break;
+            case "/layout/personalcenter":
+                title = "个人中心";
+                if (nextState.title === '个人中心'){
+                    return
+                }
+                break;
         }
         this.setState({
             title
@@ -151,9 +148,12 @@ class Layout extends React.Component {
     }
 }
 
-
-
-
-
-
 export default Layout;
+
+
+
+
+
+
+
+
